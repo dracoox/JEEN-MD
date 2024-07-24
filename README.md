@@ -5,5 +5,5 @@
 <p align="center">
 <img src="https://telegra.ph/file/41d94a398196d36958834.jpg" alt="Jeen-MD" width="800"/>
   
-> Antes de usar este repositorio, visita la **[Copyright jeen-md. 😼](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** 
+> Antes de usar este repositorio, visita la **[Copyright jeen-md. 🙂](https://github.com/GataNina-Li/GataBot-MD/blob/master/terms.md)** 
 </p>
