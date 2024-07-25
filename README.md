@@ -1,6 +1,4 @@
-<p align="center"> 
-<a href="https://github.com/GataNina-Li"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=Jeen-MD++%F0%9F%90%88;Majnon+tech+|+X5+Ayoub.+%F0%9F%92%96" height="90px"></a> 
-</p>
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Roboto&weight=500&size=30&pause=1000&color=00F7D6&background=0CFF0000&random=true&width=435&height=100&lines=+++++++++++++++JEEN-MD;majnonrossi+%7C+ayoub-X5+)](https://git.io/typing-svg)
  
 <p align="center">
 <img src="https://telegra.ph/file/41d94a398196d36958834.jpg" alt="Jeen-MD" width="800"/>
