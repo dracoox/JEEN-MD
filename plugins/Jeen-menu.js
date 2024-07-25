@@ -28,12 +28,17 @@ _*< Bot Commands />*_
 
 ▢ *_/apk_*
 ▢ *_/mediafire_*
-▢ *_/yts_*
+▢ *_/tiktok_*
 ▢ *_/play_*
 ▢ *_/bing_*
 ▢ *_/chatbot_*
 ▢ *_/ronaldo_*
 ▢ *_/messi_*
+▢ *_/facebook_*
+▢ *_/cat_*
+▢ *_/toanime_*
+▢ *_/emix_*
+
 
 
 ╭───❮  *🎯 𝕁𝔼𝔼ℕ-𝕄𝔻* ❯
