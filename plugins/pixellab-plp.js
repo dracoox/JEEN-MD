@@ -45,6 +45,7 @@ let handler = async (m, {
                     return `🔍 *[ RESULT ${index + 1} ]*\n\n` +
                         `📢 *Name:* ${item.name || 'Not available'}\n` +
                         `🌐 *Link:* ${item.link || 'Not available'}\n`
+                        `📸 *instagram:* https://instagram.com/majnon._.98 | https://instagram.com/_ayoub_x5
                 }).filter(v => v).join("\n\n________________________\n\n")
                 await m.reply(teks)
             } catch (e) {
