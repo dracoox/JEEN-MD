@@ -35,7 +35,7 @@ const searchHandler = async (m, { conn, prefix }) => {
             info, 
             thumbnailUrl, 
             [
-                ['Owner 👤', '/owner']
+                ['Owner 👤', 'majnon._.98  | _ayoub_x5']
             ], 
             null, 
             [
