@@ -62,7 +62,7 @@ _*< Bot Commands />*_
   }
 };
 
-handler.command = /^(allme)$/i;
+handler.command = /^(menu|help)$/i;
 
 export default handler;
 
