@@ -17,7 +17,7 @@ var handler = async (m, { conn, command, text, usedPrefix }) => {
   let { title, thumbnail, timestamp, views, ago, url } = vid;
   let wm = 'ABHISHEK-SER';
 
-  let captvid = `╭──── 〔 Y O U T U B E 〕 ─⬣
+  let captvid = `╭──── 〔 يوتيوب 〕 ─⬣
   ⬡ Title: ${title}
   ⬡ Duration: ${timestamp}
   ⬡ Views: ${views}
