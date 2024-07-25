@@ -27,7 +27,7 @@ const searchHandler = async (m, { conn, prefix }) => {
 
         const wm = "Please waitt......";
         const info = "*Please click the button below to Follow my channel*".trim();
-        const thumbnailUrl = 'https://telegra.ph/file/20f920e89a67c00f61543.jpg'; // Replace with actual thumbnail URL
+        const thumbnailUrl = 'https://telegra.ph/file/41d94a398196d36958834.jpg'; // Replace with actual thumbnail URL
 
         await conn.sendButton(
             m.chat, 
@@ -51,7 +51,7 @@ const searchHandler = async (m, { conn, prefix }) => {
 
         const interactiveMessage = {
             body: { text: `Search results for: ${query}` },
-            footer: { text: "@majnon._.98" },
+            footer: { text: "@majnon._.98, @_ayoub_x5" },
             nativeFlowMessage: {
                 buttons: [{
                     name: "single_select",
