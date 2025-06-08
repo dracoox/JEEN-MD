@@ -1,75 +1,42 @@
-name: host mj
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-  schedule:
-    - cron: "*/30 * * * *"
+name: Setup Ubuntu Environment and Run Tmate
+
+on: [push, workflow_dispatch]
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  setup-and-run:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Wait for 30 seconds
-        run: sleep 30
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Fetch latest changes
-        run: git pull origin ${{ github.head_ref }}
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-
-      - name: Install dependencies
-        run: rm -rf pakcage-lock.json && npm i && npx puppeteer browsers install chrome
-
-      - name: TErM
-        run: export TERM=xterm
-      
-      - name: Start The Code
-        run: node index.js &
-
-      - name: keep alive
-        id: check_runs
+      - name: Update and upgrade system packages
         run: |
-          echo "has_new_run=false" >> $GITHUB_OUTPUT
-          while true; do
-            sleep 10
-            latest_run=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/runs?per_page=1&status=queued&status=in_progress" | \
-              jq -r '.workflow_runs[0].id')
-            if [[ $latest_run != ${{ github.run_id }} ]]; then
-              echo "has_new_run=true" >> $GITHUB_OUTPUT
-              break
-            fi
-          done
-          
-      - name: delete the cache and Commit the logs
-        run: |
-          rm -rf tmp
-          mkdir tmp
-          rm -rf node_modules
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'action@github.com'
-          git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "out session update" --allow-empty)
-          
-      - name: push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
-      
-      - name: Stop workflow
-        if: steps.check_runs.outputs.has_new_run == 'true'
-        run: exit 0
+          sudo apt update && sudo apt upgrade -y
+          sudo apt-get update && sudo apt-get upgrade -y
 
-      - name: keep
-        if: steps.check_runs.outputs.has_new_run == 'false'
-        run: sleep 60
+      - name: Install required packages
+        run: |
+          sudo apt-get install -y python3 python3-pip nodejs npm tmate openssh-client neofetch git curl procps ca-certificates
+          sudo apt-get clean
+          sudo rm -rf /var/lib/apt/lists/*
+
+      - name: Install Python Telegram bot library
+        run: pip3 install --no-cache-dir pytelegrambotapi
+
+      - name: Generate fresh SSH key for tmate
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keygen -t rsa -f ~/.ssh/id_rsa -N '' -q
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Create dummy file to keep session alive
+        run: |
+          mkdir -p ~/app
+          echo "Tmate Session Running..." > ~/app/index.html
+          cd ~/app
+
+      - name: Start HTTP server and tmate session
+        run: |
+          python3 -m http.server 6080 &
+          tmate -F
